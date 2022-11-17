@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class PartNamePanel : MonoBehaviour
 {
-    public GameObject partNamePanel;
-
+    //public GameObject partNamePanel;
+    bool canGaze;
 
     private void Start()
     {
-        partNamePanel.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void EnablePanel()
     {
-        partNamePanel.SetActive(true);
+        if (RocketEngineAnimation.isExpanded) { gameObject.SetActive(true); }
+        else { gameObject.SetActive(false); }
     }
 
     public void DisablePanel()
     {
-        partNamePanel.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
