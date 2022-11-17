@@ -16,24 +16,25 @@ public class RocketEngineAnimation : MonoBehaviour
     public void PlayExpand()
     {
         animator.SetBool("isExpanded", true);
-        //isExpanded = true;
+        isExpanded = true;
     }
 
     public void PlayCollapse()
     {
         animator.SetBool("isExpanded", false);
-        //isExpanded = false;
+        isExpanded = false;
     }
 
     private void Update()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Expand"))
         {
-            isExpanded = true;
+            //isExpanded = true;
+            //print("Expanding");
         }
         else
         {
-            isExpanded=false;
+            //isExpanded=false;
         }
     }
 }

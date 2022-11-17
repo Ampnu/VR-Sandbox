@@ -20,6 +20,6 @@ public class PartNamePanel : MonoBehaviour
 
     public void DisablePanel()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }
