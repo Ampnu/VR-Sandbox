@@ -58,3 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+My project/Library/
+My project/Logs/
+My project/obj/
+My project/ProjectSettings/
+My project/Temp/
