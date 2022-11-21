@@ -10,7 +10,6 @@ public class InfoPanel : MonoBehaviour
     
     private void Awake()
     {
-        print("sdfsf");
         InfoButton.SetInfoPanel += SetPanel;
         infoPanel.SetActive(false);
     }
