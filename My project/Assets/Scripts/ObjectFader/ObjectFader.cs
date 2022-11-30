@@ -56,6 +56,8 @@ public class ObjectFader : MonoBehaviour
     public void FadeOut()
     {
         Fade(false);
+        //Foo();
+        //iTween.FadeTo(gameObject, 0, 1);
     }
 
     void Fade(bool fadeDirecton)
@@ -101,10 +103,12 @@ public class ObjectFader : MonoBehaviour
 
         for (int i = 0; i < objectMaterials.Count; i++)
         {
+            objectMaterials[i].SetFloat("_Mode", 2);
             objectMaterials[i].SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
             objectMaterials[i].SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
             objectMaterials[i].SetInt("_ZWrite", 0);
-            //objectMaterials[i].EnableKeyword("_ALPHABLEND_ON");
+            objectMaterials[i].DisableKeyword("_ALPHATEST_ON");
+            objectMaterials[i].DisableKeyword("_ALPHABLEND_ON");
             objectMaterials[i].EnableKeyword("_ALPHAPREMULTIPLY_ON");
             objectMaterials[i].renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
         }
@@ -115,7 +119,7 @@ public class ObjectFader : MonoBehaviour
             {
                 if (objectMaterials[i].HasProperty("_Color"))
                 {
-                    objectMaterials[i].color = new Color(objectMaterials[i].color.r, objectMaterials[i].color.g, objectMaterials[i].color.b, 0.5F);
+                    objectMaterials[i].color = new Color(objectMaterials[i].color.r, objectMaterials[i].color.g, objectMaterials[i].color.b, fadeAmount);
                 }
             }
         }
@@ -134,5 +138,21 @@ public class ObjectFader : MonoBehaviour
         //}
 
         //GetComponent<Renderer>().material.color = newObjectColor;
+    }
+
+    void Foo()
+    {
+        for (int i = 0; i < objectMaterials.Count; i++)
+        {
+            //objectMaterials[i].SetOverrideTag("RenderType", "Fade");
+            objectMaterials[i].SetFloat("_Mode", 2);
+            objectMaterials[i].SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            objectMaterials[i].SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            objectMaterials[i].SetInt("_ZWrite", 0);
+            objectMaterials[i].DisableKeyword("_ALPHATEST_ON");
+            objectMaterials[i].DisableKeyword("_ALPHABLEND_ON");
+            objectMaterials[i].EnableKeyword("_ALPHAPREMULTIPLY_ON");
+            objectMaterials[i].renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+        }
     }
 }
