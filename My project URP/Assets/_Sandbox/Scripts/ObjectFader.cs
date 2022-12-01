@@ -86,16 +86,16 @@ public class ObjectFader : MonoBehaviour
     {
         for (int i = 0; i < renderers.Count; i++)
         {
-            Color newObjectColor = objectMaterials[i].color;
-            newObjectColor = new Color(newObjectColor.r, newObjectColor.g, newObjectColor.b, 0);
-            renderers[i].material.color = newObjectColor;
+            //Color newObjectColor = objectMaterials[i].color;
+            //newObjectColor = new Color(newObjectColor.r, newObjectColor.g, newObjectColor.b, 0);
+            //renderers[i].material.color = newObjectColor;
         }
 
         for (int i = 0; i < renderers.Count; i++)
         {
-            Color newObjectColor = objectMaterials[i].color;
-            newObjectColor = new Color(newObjectColor.r, newObjectColor.g, newObjectColor.b, fadeAmount);
-            renderers[i].material.color = newObjectColor;
+            //Color newObjectColor = objectMaterials[i].color;
+            //newObjectColor = new Color(newObjectColor.r, newObjectColor.g, newObjectColor.b, fadeAmount);
+            //renderers[i].material.color = newObjectColor;
         }
     }
 }
