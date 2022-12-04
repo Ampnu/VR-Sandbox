@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VRS Hologram v3
+  m_Name: VRS Hologram
   m_Shader: {fileID: -6465566751694194690, guid: 6956a22f7635d1d4994b0ee4b4d93735, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:

@@ -14550,7 +14550,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac02e3344cf8148bb2cdcb039ad9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTranisitionTime: 1
+  dissolveMaterials: []
+  renderers: []
+  isDissolved: 0
+  dissolveTranisitionTime: 1
   fadeMaterial: {fileID: 2100000, guid: 537e495899e5bcc4da8002c4fccb450d, type: 2}
 --- !u!114 &1234697216
 MonoBehaviour:
@@ -22447,7 +22450,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac02e3344cf8148bb2cdcb039ad9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTranisitionTime: 1
+  dissolveMaterials: []
+  renderers: []
+  isDissolved: 0
+  dissolveTranisitionTime: 1
   fadeMaterial: {fileID: 2100000, guid: 537e495899e5bcc4da8002c4fccb450d, type: 2}
 --- !u!135 &1865178335
 SphereCollider:
@@ -33209,7 +33215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac02e3344cf8148bb2cdcb039ad9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTranisitionTime: 1
+  dissolveMaterials: []
+  renderers: []
+  isDissolved: 0
+  dissolveTranisitionTime: 1
   fadeMaterial: {fileID: 2100000, guid: 537e495899e5bcc4da8002c4fccb450d, type: 2}
 --- !u!1 &781160163981114423
 GameObject:
@@ -33400,6 +33409,7 @@ GameObject:
   - component: {fileID: 798275025433602971}
   - component: {fileID: 798275025433602968}
   - component: {fileID: 798275025433602969}
+  - component: {fileID: 798275025433602975}
   m_Layer: 5
   m_Name: Dialogs Canvas
   m_TagString: Untagged
@@ -33407,6 +33417,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &798275025433602975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798275025433602974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc251c8a81a75740982a6cfe790bf2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveTransitionTime: 1
 --- !u!224 &804642046331747564
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50452,7 +50475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc251c8a81a75740982a6cfe790bf2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTranisitionTime: 1
+  dissolveTransitionTime: 1
 --- !u!222 &3426206280369340222
 CanvasRenderer:
   m_ObjectHideFlags: 0
