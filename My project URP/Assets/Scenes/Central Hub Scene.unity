@@ -14550,11 +14550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac02e3344cf8148bb2cdcb039ad9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissolveMaterials: []
-  renderers: []
-  isDissolved: 0
-  dissolveTranisitionTime: 1
-  fadeMaterial: {fileID: 2100000, guid: 537e495899e5bcc4da8002c4fccb450d, type: 2}
 --- !u!114 &1234697216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15475,7 +15470,7 @@ MonoBehaviour:
   startPoint: {fileID: 316838402}
   centerPoint: {fileID: 2041458118}
   endPoint: {fileID: 386039519}
-  duration: 3
+  duration: 1
   lerpCurve:
     serializedVersion: 2
     m_Curve:
@@ -22450,11 +22445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac02e3344cf8148bb2cdcb039ad9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissolveMaterials: []
-  renderers: []
-  isDissolved: 0
-  dissolveTranisitionTime: 1
-  fadeMaterial: {fileID: 2100000, guid: 537e495899e5bcc4da8002c4fccb450d, type: 2}
 --- !u!135 &1865178335
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -33215,11 +33205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac02e3344cf8148bb2cdcb039ad9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissolveMaterials: []
-  renderers: []
-  isDissolved: 0
-  dissolveTranisitionTime: 1
-  fadeMaterial: {fileID: 2100000, guid: 537e495899e5bcc4da8002c4fccb450d, type: 2}
 --- !u!1 &781160163981114423
 GameObject:
   m_ObjectHideFlags: 0
@@ -46692,6 +46677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3416537398967708699}
+  - component: {fileID: 3416537398967708701}
   - component: {fileID: 3416537398967708700}
   m_Layer: 0
   m_Name: Rocket Engine H
@@ -50475,7 +50461,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc251c8a81a75740982a6cfe790bf2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissolveTransitionTime: 1
+  dissolveTransitionTime: 3
+--- !u!114 &3416537398967708701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603689736375563937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80bdfa3fdbed6342bc3b4eab2ed6b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &3426206280369340222
 CanvasRenderer:
   m_ObjectHideFlags: 0

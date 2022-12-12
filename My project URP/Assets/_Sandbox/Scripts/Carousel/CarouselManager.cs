@@ -15,7 +15,6 @@ public class CarouselManager : MonoBehaviour
     public AnimationCurve lerpCurve;
 
     public List<GameObject> objList;
-    int indexCounter = 0;
     int objIndex = -1;
 
     //private void Start()
@@ -41,8 +40,20 @@ public class CarouselManager : MonoBehaviour
     
     public void MoveObjectRight()
     {
-        Move(false);
-        objIndex--;
+        //print(objIndex);
+        if (objIndex != -1 && objIndex > 0)
+        {
+            //print("Seq Move");
+            objIndex--;
+            Move(false);
+
+        }
+        else
+        {
+            //print("Intiial Start " + (objList.Count - 1));
+            objIndex = objList.Count - 1;
+            Move(false);
+        }
     }  
 
     void Move(bool moveDir)
@@ -72,9 +83,10 @@ public class CarouselManager : MonoBehaviour
             else elaspeTime -= Time.deltaTime;
 
             float result = elaspeTime / duration;
+            //LerpCarouselLeft(result);
             if(lerpLeft) { LerpCarouselLeft(result); }
             else { LerpCarouselRight(result); }
-            
+
             yield return null;
         }
     }
@@ -87,11 +99,19 @@ public class CarouselManager : MonoBehaviour
             {
                 objList[objIndex].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
                 objList[objIndex - 1].transform.position = Vector3.Lerp(centerPoint.position, endPoint.position, lerpCurve.Evaluate(percentage));
+
+                if (percentage > 0.1f) { objList[objIndex].SetActive(true); }
+                if (percentage > 0.9f) { objList[objIndex - 1].SetActive(false); }
             }
             else
             {
-                objList[objIndex].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
-            }         
+                objList[0].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
+                objList[objList.Count - 1].transform.position = Vector3.Lerp(centerPoint.position, endPoint.position, lerpCurve.Evaluate(percentage));
+
+                if (percentage > 0.1f) { objList[0].SetActive(true); }
+                if (percentage > 0.9f) { objList[objList.Count - 1].SetActive(false); }
+            }
+                     
         }
     }
 
@@ -99,15 +119,24 @@ public class CarouselManager : MonoBehaviour
     {
         if (objIndex < objList.Count)
         {
-            if (objIndex > 0)
+            //print(objIndex);
+            if (objIndex != -1 && objIndex > 0)
             {
-                print("Move Boi");
                 objList[objIndex].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
                 objList[objIndex - 1].transform.position = Vector3.Lerp(centerPoint.position, endPoint.position, lerpCurve.Evaluate(percentage));
+
+                if (percentage < 0.1f) { objList[objIndex].SetActive(false); }
+                if (percentage > 0.9f) { objList[objIndex - 1].SetActive(true); }
             }
             else
             {
-                objList[objIndex].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
+                //print("Start From Begining");
+                objList[0].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
+                objList[objList.Count -1].transform.position = Vector3.Lerp(centerPoint.position, endPoint.position, lerpCurve.Evaluate(percentage));
+
+                if (percentage < 0.1f) { objList[0].SetActive(false); }
+                if (percentage > 0.9f) { objList[objList.Count - 1].SetActive(true); }
+               
             }
         }
     }
