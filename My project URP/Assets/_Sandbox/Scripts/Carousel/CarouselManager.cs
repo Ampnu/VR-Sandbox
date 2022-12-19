@@ -15,12 +15,17 @@ public class CarouselManager : MonoBehaviour
     public AnimationCurve lerpCurve;
 
     public List<GameObject> objList;
-    int objIndex = -1;
+    int objIndex = 0;
 
-    //private void Start()
-    //{
-    //    MoveObjectLeft();
-    //}
+    private void Start()
+    {
+        foreach (var obj in objList)
+        {
+            obj.SetActive(false);
+        }
+        objList[0].SetActive(true);
+        objList[0].transform.position = centerPoint.position;
+    }
 
     public void MoveObjectLeft()
     {
@@ -40,12 +45,13 @@ public class CarouselManager : MonoBehaviour
     
     public void MoveObjectRight()
     {
-        //print(objIndex);
-        if (objIndex != -1 && objIndex > 0)
+        print(objIndex);
+        if (/*objIndex != 0 &&*/ objIndex > 0)
         {
             //print("Seq Move");
-            objIndex--;
+            
             Move(false);
+            objIndex--;
 
         }
         else
@@ -122,20 +128,21 @@ public class CarouselManager : MonoBehaviour
             //print(objIndex);
             if (objIndex != -1 && objIndex > 0)
             {
-                objList[objIndex].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
-                objList[objIndex - 1].transform.position = Vector3.Lerp(centerPoint.position, endPoint.position, lerpCurve.Evaluate(percentage));
+                print("Move Back");
+                //objList[objIndex -1].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
+                //objList[objIndex].transform.position = Vector3.Lerp(centerPoint.position, endPoint.position, lerpCurve.Evaluate(percentage));
 
-                if (percentage < 0.1f) { objList[objIndex].SetActive(false); }
-                if (percentage > 0.9f) { objList[objIndex - 1].SetActive(true); }
+                //if (percentage < 0.1f) { objList[objIndex -1].SetActive(false); }
+                //if (percentage > 0.9f) { objList[objIndex].SetActive(true); }
             }
             else
             {
-                //print("Start From Begining");
-                objList[0].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
-                objList[objList.Count -1].transform.position = Vector3.Lerp(centerPoint.position, endPoint.position, lerpCurve.Evaluate(percentage));
+                print("Start From Begining");
+                //objList[0].transform.position = Vector3.Lerp(startPoint.position, centerPoint.position, lerpCurve.Evaluate(percentage));
+                //objList[objList.Count -1].transform.position = Vector3.Lerp(centerPoint.position, endPoint.position, lerpCurve.Evaluate(percentage));
 
-                if (percentage < 0.1f) { objList[0].SetActive(false); }
-                if (percentage > 0.9f) { objList[objList.Count - 1].SetActive(true); }
+                //if (percentage < 0.1f) { objList[0].SetActive(false); }
+                //if (percentage > 0.9f) { objList[objList.Count - 1].SetActive(true); }
                
             }
         }

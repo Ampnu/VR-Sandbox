@@ -14,15 +14,16 @@ public class CarouselController : MonoBehaviour
         m_CarouselManager = GetComponent<CarouselManager>();
     }
 
-    [ContextMenu("Index Carousel")]
+    [ContextMenu("Index Carousel Fwd")]
     public void IndexRight()
     {
         //print(index);
         m_CarouselManager.MoveObjectLeft();
     }
 
+    [ContextMenu("Index Carousel Bwd")]
     public void IndexLeft()
     {
-
+        m_CarouselManager.MoveObjectRight();
     }
 }
